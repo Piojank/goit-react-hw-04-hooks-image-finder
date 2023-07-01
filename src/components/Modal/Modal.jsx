@@ -36,6 +36,8 @@ const Modal = ({ closeModal, urlImage, tags }) => {
     );
 };
 
+export default Modal;
+
 Modal.propTypes = {
     urlImage: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
