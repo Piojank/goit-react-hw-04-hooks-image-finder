@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import s from './Searchbar.module.css';
 
-const Searchbar = ({ onSearch }) => {
+export const Searchbar = ({ onSearch }) => {
     const [searchRequest, setSearchRequest] = useState('');
 
     const handleRequestChange = (event) => {
@@ -48,5 +48,3 @@ const Searchbar = ({ onSearch }) => {
 Searchbar.propTypes = {
     onSearch: PropTypes.func.isRequired,
 };
-
-export default Searchbar;

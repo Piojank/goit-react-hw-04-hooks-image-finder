@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import s from './Modal.module.css';
 
-const Modal = ({ closeModal, urlImage, tags }) => {
+export const Modal = ({ closeModal, urlImage, tags }) => {
 
     useEffect(() => {
         const handleKeyDown = element => {
@@ -35,8 +35,6 @@ const Modal = ({ closeModal, urlImage, tags }) => {
         </div>
     );
 };
-
-export default Modal;
 
 Modal.propTypes = {
     urlImage: PropTypes.string.isRequired,

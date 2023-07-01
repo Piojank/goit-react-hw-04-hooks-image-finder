@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Searchbar from './Searchbar/Searchbar';
+import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
-import Modal from './Modal/Modal';
+import { Modal } from './Modal/Modal';
 import { Loader } from './Loader/Loader';
 import { fetchImages } from 'utils/PixabayAPI';
 
