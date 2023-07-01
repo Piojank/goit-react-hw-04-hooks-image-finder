@@ -10,8 +10,8 @@ export const fetchImages = async (name, galleryPage) => {
     const FETCH_URL = `${BASE_URL}?key=${API_KEY}&q=${name}&${IMAGE_TYPE}&${IMAGE_SETTINGS}&page=${galleryPage}&${PER_PAGE}`;
 
     return axios.get(FETCH_URL)
-    .then(response => response.data)
-    .catch(error => {
-        throw error;
+        .then(response => response.data)
+        .catch(error => {
+            throw error;
     });
 };
