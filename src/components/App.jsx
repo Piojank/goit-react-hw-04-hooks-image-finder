@@ -10,7 +10,7 @@ import Modal from './Modal/Modal';
 import { Loader } from './Loader/Loader';
 import { fetchImages } from 'utils/PixabayAPI';
 
-const App = () => {
+export const App = () => {
 
     const [query, setQuery] = useState('');
     const [images, setImages] = useState([]);
@@ -99,5 +99,3 @@ const App = () => {
         </>
     );
 };
-
-export default App;
