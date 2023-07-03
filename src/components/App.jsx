@@ -19,37 +19,35 @@ export const App = () => {
     const [loading, setLoading] = useState(false);
     const [modal, setModal] = useState(null);
 
-    useEffect(() => {
-        const updateImages = (query, page) => {
-            setLoading(true);
+    const updateImages = async (query, page) => {
+        setLoading(true);
 
-            setTimeout(() => {
-                try {
-                    fetchImages(query, page).then(data => {
-                        if (!data.hits.length) {
-                            return toast.error(
-                                'There is no images found with that search request'
-                            );
-                        };
-                        const mappedImages = data.hits.map(
-                            ({ id, webformatURL, tags, largeImageURL }) => ({
-                                id,
-                                webformatURL,
-                                tags,
-                                largeImageURL,
-                            }));
-                        setImages(img => [...img, ...mappedImages]);
-                    });
-                } catch (error) {
-                    setError(error);
-                } finally {
-                    setLoading(false);
-                };
-            }, 1000);
+        try {
+        const data = await fetchImages(query, page);
+
+        if (!data.hits.length) {
+            return toast.error('There is no images found with that search request');
+        } else {
+            const mappedImages = data.hits.map(
+                ({ id, webformatURL, tags, largeImageURL }) => ({
+                    id,
+                    webformatURL,
+                    tags,
+                    largeImageURL
+                }));
+            setImages(img => [...img, ...mappedImages]);
+            };
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
         };
+    };
+
+    useEffect(() => {
         if (query !== '' || page !== 1) {
             updateImages(query, page);
-        };
+        }
     }, [query, page]);
 
     const handleSearchSubmit = value => {
